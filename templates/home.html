@@ -13,16 +13,20 @@
     <!-- section for the search bar and filter button -->
    <section class="search-and-filter">
     <form action="" method="post">
-      <input type="text" name="search" class="input-field" placeholder="Search">
+      <input type="search" name="search" class="input-field" placeholder="Search" onkeydown="drawSuggestions()">
       <button type="submit" class="search-button">
         <img src="images/search.png" alt="search button" class="search-button-image">
       </button>
+      
+      <!-- suggestions box -->
+      <div class="suggestions">
 
-      <button type="submit" class="filter-button">
-        <img src="images/sort.png" alt="filter button" class="search-button-image filter-button-image">
-        <span>Filter</span>
-      </button>
+      </div>
     </form>
+    <button class="filter-button">
+      <img src="images/sort.png" alt="filter button" class="search-button-image filter-button-image">
+      <span>Filter</span>
+    </button>
    </section>
 
    <!-- section for listing tutors profiles -->
