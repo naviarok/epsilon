@@ -1,9 +1,16 @@
 let SearchInput = document.querySelector('.input-field');
 let suggestionsBox = document.querySelector('.suggestions');
 
+const maxSuggestions = 6;
 const SuggestionsAvailable = [
-  'mathematique', 'physics', 'philosophy', 'mathe-dynamique'
+  'mathematique', 
+  'physics',
+  'philosophy',
+  'mathe-dynamique',
+  'yolo',
+  'yapping'
 ];
+
 
 function fillSearchWith(text){
   SearchInput.value = text;
@@ -16,20 +23,26 @@ function drawSuggestions(){
 
   setTimeout(() => {
     suggestions = [];
+  
 
     SuggestionsAvailable.forEach( 
-      (item) => {
+      (item, index) => {
         if (SearchInput.value != ""){
           if (item.includes(SearchInput.value)){
-            // suggestions.push(item);
-            suggestionsBox.style.display = "flex";
-            result += `
-        <span class="suggestion" onclick="fillSearchWith('${item}')">
-          <img src="images/arrow-upper-right.png" alt="search suggestion arrow" class="search-suggestion-arrow">
-          <span>${item}</span>
-        </span>
-            `;
-            notFound = true;
+
+              suggestionsBox.style.display = "flex";
+
+              if (index <= maxSuggestions){
+                result += `
+                  <span class="suggestion" onclick="fillSearchWith('${item}')">
+                    <img src="images/arrow-upper-right.png" alt="search suggestion arrow" class="search-suggestion-arrow">
+                    <span>${item}</span>
+                  </span>
+                `;
+              }
+
+              notFound = true;
+            
           }
         }
         else{
